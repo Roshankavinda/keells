@@ -12,7 +12,7 @@
         <small>Control panel</small>
       </h1>
       <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li><a href="ihi"><i class="dashboard"></i> Home</a></li>
         <li class="active">Dashboard</li>
         </span>
           </a>
@@ -25,7 +25,7 @@
     <section class="content">
       <!-- Small boxes (Stat box) -->
       <div class="row">
-        <div class="col-lg-3 col-xs-6">
+        <div class="col-lg-3">
           <!-- small box -->
           <div class="small-box bg-yellow">
             <div class="inner">
@@ -55,7 +55,7 @@
           </div>
         </div>
         <!-- ./col -->
-        <div class="col-lg-3 col-xs-6">
+        <div class="col-lg-3">
           <!-- small box -->
           <div class="small-box bg-aqua">
             <div class="inner">
@@ -96,7 +96,7 @@
           <div class="nav-tabs-custom">
             <!-- Tabs within a box -->
             <ul class="nav nav-tabs pull-right">
-              <li class="active"><a href="#revenue-chart" data-toggle="tab">Area</a></li>
+              <li class="active"><a href="#Area-chart" data-toggle="tab">Area</a></li>
               <li><a href="#sales-chart" data-toggle="tab">Donut</a></li>
               <li class="pull-left header"><i class="fa fa-inbox"></i> Products</li>
             </ul>
