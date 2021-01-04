@@ -8,7 +8,7 @@ if($con){
 <head>
   <title>Keells</title>
 
-  <link rel="stylesheet" type="text/css" href="css/style.css">
+  <link rel="stylesheet" type="text/css" href="css/index.css">
   <script src="https://kit.fontawesome.com/a076d05399.js"></script>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -42,8 +42,8 @@ if($con){
                  <p>We like to buy your goods and quality harvest with best prices. 
                    So you can join with us and get a best value to your harvest.
                  </p>
-                 <a class="btn btn-first" href="">Login</a>
-                 <a class="btn btn-second" href="">Signup</a>
+                 <a class="btn btn-first" href="/keells/register_login/login.php">Login</a>
+                 <a class="btn btn-second" href="/keells/register_login/register.php">Register</a>
             </div>
 
             <div class="col-sm-6 banner-image">
@@ -230,7 +230,7 @@ if($con){
        <div class="footer-menu-one">
          <ul>
            <li><a href="index.php">Home</a></li>
-           <li><a href="#">About us</a></li>
+           <li><a href="index.php">About us</a></li>
            <li><a href="#">Services</a></li>
            <li><a href="#">Contact us</a></li>
          </ul>
