@@ -9,11 +9,7 @@
     margin: 0;
     padding: 0;
 }
-.header
-{
-    height: 100vh;
 
-}
 .navbar-style
 {
     box-shadow: 0 5px 10px #4cdf53;
@@ -31,84 +27,29 @@ li a
     color: rgb(9, 102, 17);
     font-weight: bold;
 }
-.big-text
-{
-    font-size: 52px;
-    margin: 20px 0;
-    color: rgb(6, 114, 39);
-}
-p {
-    font-size: 20px;
-    font-family: Ubuntu;
+
+.ol.a {
+    list-style-type: circle;
   }
 
-h2
-{
-    font-family: Ubuntu;
+h1 { 
+    font-family: Ubuntu; 
+    font-size: 24px; 
+    font-style: normal; 
+    font-variant: normal; 
+    font-weight: 700; 
+    line-height: 26.4px; 
 }
 
-h2
-{
-    font-family: Ubuntu;
-}
-
-a.btn
-{
-    margin: 30px 10px;
-    width: 150px;
-    padding: 10px;
-    border-radius: 20px;
-}
-
-a.btn-first
-{
-    background-color: limegreen;
-    color: #333;
-}
-
-a.btn-second
-{
-    background: transparent;
-    border: 1px solid limegreen;
-    color: #333;
-}
-
-
-a.btn:hover
-{
-    background: #4cdf53;
-    border: none;
-    color: #fff;
-    box-shadow: 5px 5px 10px #999;
-    transition: 0.3s;
-}
-
-.banner-info, .banner-image
-{
-     margin: 30px 0; 
-}
-
-h1
-{
-    font-size: large;
-    font-weight: bold;
-    color: rgb(45, 226, 45);
-    text-align: center;
-  
+h2 {
     
-}
+    top: 50px; 
+    width: 600px; 
+    height: 200px;
+    margin-left: 250px;
+    color:black; 
+    font-size:40px;
 
-
-.carousel-inner img 
-{
-    width: 100%;
-    height: 100%;
-}
-
-a
-{
-   text-decoration: none;
-   outline: none;
 }
 
 .footer-main-div
@@ -201,6 +142,3 @@ a
     text-align: center;
     color: rgb(255, 255, 255);
 }
-
-
-

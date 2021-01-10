@@ -13,7 +13,156 @@ if($con){
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+    <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDWTriBYWJYEzM-ZxPwcZGQEibq1Y0oTic&callback&callback&callback=initMap&libraries=&v=weekly"
+      defer>
+    </script>
+    <style type="text/css">
+      /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+      #map {
+        height: 100%;
+      }
+
+      /* Optional: Makes the sample page fill the window. */
+      html,
+      body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+
+      #floating-panel {
+        position: absolute;
+        top: 1780px;
+        left: 75%;
+        z-index: 5;
+        background-color: #fff;
+        padding: 5px;
+        border: 1px solid #999;
+        text-align: center;
+        font-family: "Roboto", "sans-serif";
+        line-height: 0x;
+        padding-left: 10px;
+      }
+
+      #floating-panel {
+        margin-left: -52px;
+      }
+    </style>
+    <script>
+      // If you're adding a number of markers, you may want to drop them on the map
+      // consecutively rather than all at once. This example shows how to use
+      // window.setTimeout() to space your markers' animation.
+      const neighborhoods = [
+        { lat: 6.9934, lng: 81.0550 },  // badulla
+        { lat: 6.9497, lng: 80.7891 },  // nuwara eliya
+        { lat: 5.9549, lng: 80.5550 },  //kandy
+        { lat: 7.2906, lng: 80.6337 },  //matara
+        { lat: 8.3114, lng: 80.4037 }   //anuradhapura
+
+      ];
+
+      const neighborhoodsDetails = [
+        '<div id="content">' +
+            '<div id="siteNotice">' +
+            "</div>" +
+            '<h1 id="firstHeading" class="firstHeading">Badulla</h1>' +
+            '<div id="bodyContent">' +
+            "<p><b>Badulla</b>   </p>" +      // ADD HEARE badulla
+            "</div>" +
+            "</div>",
+         //   
+        '<div id="content">' +
+            '<div id="siteNotice">' +
+            "</div>" +
+            '<h1 id="firstHeading" class="firstHeading">Nuwara Eliya</h1>' +
+            '<div id="bodyContent">' +
+            "<p><b>Nuwara Eliya</b>   </p>" +      // ADD HEARE nuwara eliya
+            "</div>" +
+            "</div>"+
+        "</div>",
+        //
+        '<div id="content">' +
+            '<div id="siteNotice">' +
+            "</div>" +
+            '<h1 id="firstHeading" class="firstHeading">Matara</h1>' +
+            '<div id="bodyContent">' +
+            "<p><b>Matara</b>   </p>" +        // ADD HEARE kandy
+            "</div>" +
+            "</div>"+
+        "</div>",
+        //
+        '<div id="content">' +
+            '<div id="siteNotice">' +
+            "</div>" +
+            '<h1 id="firstHeading" class="firstHeading">Kandy</h1>' +
+            '<div id="bodyContent">' +
+            "<p><b>Kandy</b>   </p>" +         //ADD HEARE matara
+            "</div>" +
+            "</div>"+
+        "</div>",
+        //
+        '<div id="content">' +
+            '<div id="siteNotice">' +
+            "</div>" +
+            '<h1 id="firstHeading" class="firstHeading">Anuradhapura</h1>' +
+            '<div id="bodyContent">' +
+            "<p><b>Anuradhapura</b>   </p>" +     // ADD HEARE anuradhapura
+            "</div>" +
+            "</div>"+
+        "</div>"
+
+      ];
+      let markers = [];
+      let map;
+
+      function initMap() {
+        map = new google.maps.Map(document.getElementById("map"), {
+          zoom: 8,
+          center: { lat: 7.8731, lng: 80.7718 },
+        });
+      }
+
+      function drop() {
+        clearMarkers();
+
+        for (let i = 0; i < neighborhoods.length; i++) {
+          addMarkerWithTimeout(neighborhoods[i], neighborhoodsDetails[i], i * 200);
+        }
+      }
+
+      function addMarkerWithTimeout(position, detail, timeout) {
+       
+        window.setTimeout(() => {
+          // markers.push(
+             const markerInstance =new google.maps.Marker({
+              position: position,
+              map,
+              animation: google.maps.Animation.DROP,
+            })
  
+            const infowindow = new google.maps.InfoWindow({
+              content: detail,
+              maxWidth: 200,
+            });
+
+            markerInstance.addListener("click", () => {
+              infowindow.open(map, markerInstance);
+             });
+          //);
+        }, timeout);
+      }
+
+      function clearMarkers() {
+        for (let i = 0; i < markers.length; i++) {
+          markers[i].setMap(null);
+        }
+        markers = [];
+      }
+    </script>
 </head>
 <body>
      <header class="header">
@@ -21,13 +170,13 @@ if($con){
          <div class="container">
            <div class="navbar-header">
            
-            <a href=""><img class="logo" src="images/keellslogo.png"></a>
+            <a href="/index.php"><img class="logo" src="images/keellslogo.png"></a>
           </div>
            
            <ul class="nav justify-content-end">
-            <li><a class="nav-link" href="#">HOME</a></li>
-            <li><a class="nav-link" href="#">ABOUT US</a></li>
-            <li><a class="nav-link" href="#">CONTACT US</a></li>
+            <li><a class="nav-link" href="index.php">HOME</a></li>
+            <li><a class="nav-link" href="about.php">ABOUT US</a></li>
+            <li><a class="nav-link" href="contactus.php">CONTACT US</a></li>
             </ul>
           </div>
          </div>
@@ -38,7 +187,7 @@ if($con){
 
             <div class="col-sm-6 banner-info">
                  <h1></h1>
-                 <p class="big-text">GET! Best Prices For Your Harvest From Keells</p>
+                 <p class="big-text ">GET! Best Prices For Your Harvest From Keells</p>
                  <p>We like to buy your goods and quality harvest with best prices. 
                    So you can join with us and get a best value to your harvest.
                  </p>
@@ -85,12 +234,35 @@ if($con){
       
       </div>
       <br/>
-      <h2 style="width: 900px; height: 500px; margin-left: 550px;color:#4CC417;font-size:100px">Keells</h2>
+      <h2 style="width: 900px; height: 500px; margin-left: 550px;color:#4CC417;font-size:100px;">Keells</h2>
       <p style="width: 900px; height: 500px;text-align: center;margin-left: 250px;margin-top:-380px;font-weight: bold;color:black;font-size:20px">Keells is proudly Sri Lankan, owned and operated over the last 25 years, delivering the freshest quality products, 
         along with great value, serving thousands of Sri Lankans every day.Keells was also the first retailer in Sri Lanka to commit to reduce by 50%, single use polythene bag and instore prepared food packaging by the year 2025, ensuring that as the business grows the impact on the environment is minimized and sustainable practices employed. 
         Over 57 of our stores also use solar power relying more on renewable sources of energy as another initiative towards being sustainable.</p>
-        <br/>
-        <h1 style="margin-top:-250px;color:black;background-color:#4CC552;">Our Reports</h1>
+       <br>
+       
+      <h1 style="margin-top:-250px;color:black;">Farmers Reports Map</h1>
+      <br>
+      <div id="floating-panel">
+      <button id="drop" onclick="drop()">View Farmers Reports</button>
+      </div>
+      <div id="map"></div>
+
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+    
+    <h1 style="margin-top:-250px;color:black;">Our Stock Reports</h1>
        
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript">
@@ -205,7 +377,10 @@ if($con){
         var chart = new google.visualization.PieChart(document.getElementById('piechart4'));
 
         chart.draw(data, options);
+        
       }
+        
+      
     </script>  
         
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -216,29 +391,27 @@ if($con){
         <div id="piechart2" style="width: 900px; height: 500px; margin-left: 650px; margin-top: -500px"></div>
         <div id="piechart3" style="width: 900px; height: 500px; margin: 0px"></div>
         <div id="piechart4" style="width: 900px; height: 500px; margin-left: 650px; margin-top: -500px"></div>
-        <div class="footer-main-div">
-
+        
+    <div class="footer-main-div">
     <div  class="footer-social-icons">
        <ul>
        <li><a href="#"><span class="fab fa-facebook-f"></span></a></li>
        <li><a href="#"><span class="fab fa-twitter"></span></a></li>
        <li><a href="#"><span class="fab fa-instagram"></span></a></li>
-       <li><a href="#"><span class="fab fa-google-plus"></span></a></li>
        </ul>
        </div>
     </br>
        <div class="footer-menu-one">
          <ul>
            <li><a href="index.php">Home</a></li>
-           <li><a href="index.php">About us</a></li>
-           <li><a href="#">Services</a></li>
-           <li><a href="#">Contact us</a></li>
+           <li><a href="about.php">About us</a></li>
+           <li><a href="contactus.php">Contact  Us</a></li>
          </ul>
        </div>
 
        </div> 
        <div class="footer-bttom">
-         <p2>Copyright © 2020 Jaykay Marketing Services (Pvt) Ltd. All Rights Reserved</p2></br><p2><a href="">Admin Login</a></p2>
+         <p2>Copyright © 2021 Jaykay Marketing Services (Pvt) Ltd. All Rights Reserved</p2></br><p2><a href="/keells/keellsadmin_login/adminlogin.php">Keells Admin Login</a> <br> <a href="/keells/Doastaff_login/doalogin.php">DOA Staff Login</a></p2>
          
        </div>
       </header>

@@ -1,10 +1,10 @@
 <?php
-   //header.php
-   include('regheader.php');
+   //doalogin_header.php
+   include('doalogin_header.php');
 ?>
 
     <!-- registration area-->
-    <section id="register">
+    <section id="doa-login">
        <table style="width: 100%; height:100%;">
           <tr>
           <td style="width: 100px; height:500px;">
@@ -14,20 +14,16 @@
             <div class="row m-0">
             <div class="col-lg-4 offset-lg-2">
                <div class="text-center pb-5">
-               <h1 class="login-title text-dark ">Registration</h1>
-               <p class="p-1 m-0 font-ubuntu text-black-50">GET! Best Prices For Your Harvest From Keells</p>
-               <span class="font-ubuntu text-black-50">I already have <a href="login.php">Login</a></span>
+               <h1 class="login-title font-ubuntu text-dark">DOA Login</h1>
                </div>
                
                <div class="d-flex justify-content-center">
-                  <form action="register_process.php" method="post" enctype="multipart/form-data" id="reg-form"> 
+                  <form action="login_process.php" method="post" enctype="multipart/form-data" id="log-form"> 
                      <div class="form-row">
                         <div class="col">
                            <input type="text"  name="userName" id="userName" class="form-control" placeholder="User Name*">
                         </div>
-                        <div class="col">
-                           <input type="text"  name="nicNumber" id="nicNumber" class="form-control" placeholder="NIC Number*">
-                        </div>
+                        
                      </div>
 
                      
@@ -40,7 +36,7 @@
                      
 
                      <div class="submit-btn text-center my-5">
-                        <button type="submit" class="btn btn-warning rounded-pill text-dark px-5"  name="submit">Continue</button>
+                        <button type="submit" class="btn btn-warning rounded-pill text-dark px-5"  name="submit">Login</button>
                      </div>
                   </form>
                </div>
@@ -57,6 +53,6 @@
              
             
 <?php
-   //footer.php
-   include('regfooter.php');
+   //doalogin.footer.php
+   include('doalogin.footer.php');
 ?>
