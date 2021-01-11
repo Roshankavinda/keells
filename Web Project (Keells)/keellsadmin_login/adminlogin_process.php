@@ -43,7 +43,7 @@ if(isset($_POST["userName"]) && isset($_POST["password"])){
     }
     if (isset($_SESSION["userName"]) && isset($_POST["userName"])){
 
-      header("Location:../user/user_index.php?username=$userName");
+      header("Location:../Admin_dashboard/index.php?username=$userName");
 
     $_SESSION["userName"] = $userName;
 

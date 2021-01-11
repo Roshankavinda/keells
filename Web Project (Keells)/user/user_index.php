@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>User</title>
-    <link rel="stylesheet" type="text/css" href="/keells/css/userindex.css">
+    <link rel="stylesheet" type="text/css" href="/keells/css/us.css">
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -27,11 +27,15 @@
             </ul>
           </div>
          </div>
+         
          <a href="/keells/index.php" style="background:#478541 ;" class="btn btn-info btn-lg"><span class="glyphicon glyphicon-log-out"></span> Log out</a>
        </nav>
-
-     
-       <h1 style="margin-left: 220px; margin-top:50px;">Vegetables Prices</h1>
+       <br>
+       <h1 style="margin-left: 560px; margin-top:0px; color:rgb(255, 62, 62);">Price Lists</h1>
+       <div class="chat-popup" id="myForm">
+  
+       
+       <h1 style="margin-left: 220px; margin-top:10px;">Vegetables Prices</h1>
        <h1 style="margin-left: 850px; margin-top:-50px;">Fruits Prices</h1>
 <div class="table-box-2">
         <div class="table-row-2 table-head-2">
@@ -285,7 +289,59 @@
 </div>  
 
 
-<div style=" margin-top:550px;  margin-left: 100px;" class="wrapper">
+
+
+<form action="/action_page.php" class="form-container">
+    <h1>Chat</h1>
+
+    <label for="msg"><b>Message</b></label>
+
+    <?php 
+
+
+$username1 =$_GET['username'];
+
+
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "keells";
+
+// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname);
+// Check connection
+if ($conn->connect_error) {
+  die("Connection failed: " . $conn->connect_error);
+}
+
+$sql = "SELECT * FROM  chat WHERE  name= '$username1' and type ='1' ";
+$result = mysqli_query($conn, $sql) or die( mysqli_error($conn));
+
+
+while($res = mysqli_fetch_array($result)) {  
+	
+	
+	$message =$res['message'];
+
+ 
+
+}
+
+
+
+     echo "<h3>$message</h3>";
+
+    ?>
+   
+
+
+    <textarea placeholder="Type message.." name="msg" required></textarea>
+
+    <button type="submit" class="btn">Send</button>
+  </form>
+</div>
+
+<div style=" margin-top:-500px;  margin-left: 100px;" class="wrapper">
 
 <form action="oder.php" method="post" enctype="multipart/form-data">
 
@@ -425,8 +481,7 @@ function initMap() {
       </div>
     </div>
 
-    
-      
+  
 
     <div class="footer-main-div">
     <div  class="footer-social-icons">

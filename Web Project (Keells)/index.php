@@ -411,7 +411,7 @@ if($con){
 
        </div> 
        <div class="footer-bttom">
-         <p2>Copyright © 2021 Jaykay Marketing Services (Pvt) Ltd. All Rights Reserved</p2></br><p2><a href="/keells/keellsadmin_login/adminlogin.php">Keells Admin Login</a> <br> <a href="/keells/Doastaff_login/doalogin.php">DOA Staff Login</a></p2>
+         <p2>Copyright © 2021 Jaykay Marketing Services (Pvt) Ltd. All Rights Reserved</p2></br><p2><a href="/keells/keellsadmin_login/adminlogin.php">Admin Login</a></p2>
          
        </div>
       </header>

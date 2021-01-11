@@ -14,12 +14,12 @@
             <div class="row m-0">
             <div class="col-lg-4 offset-lg-2">
                <div class="text-center pb-5">
-               <h1 class="login-title font-ubuntu text-dark">Kells Admin Login</h1>
+               <h1 class="login-title font-ubuntu text-dark">Admin Login</h1>
                
                </div>
                
                <div class="d-flex justify-content-center">
-                  <form action="login_process.php" method="post" enctype="multipart/form-data" id="log-form"> 
+                  <form action="adminlogin_process.php" method="post"  id="log-form"> 
                      <div class="form-row">
                         <div class="col">
                            <input type="text"  name="userName" id="userName" class="form-control" placeholder="User Name*">
