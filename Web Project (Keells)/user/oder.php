@@ -54,7 +54,7 @@ if(isset($_POST['submit']))
    
  
 
-    header("user_index.php");
+            header("Location:user_index.php");
 
 
 

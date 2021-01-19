@@ -329,10 +329,10 @@ while($res = mysqli_fetch_array($result)) {
 
 
 
-     echo "<h3>$message</h3>";
+
 
     ?>
-   
+   <h4><?php echo $message; ?></h4>
 
 
     <textarea placeholder="Type message.." name="msg" required></textarea>

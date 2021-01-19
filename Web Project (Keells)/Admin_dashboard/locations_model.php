@@ -15,7 +15,7 @@ function get_all_locations(){
         die('Not connected : ' . mysqli_connect_error());
     }
     // update location with location_status if admin location_status.
-    $sqldata = mysqli_query($con,"Select id,lat,lng,name,phone,category,quantity,image,type,status from oder");
+    $sqldata = mysqli_query($con,"Select id,lat,lng,name,phone,category,quantity ,image ,status,type from oder");
 
     $rows = array();
     while($r = mysqli_fetch_assoc($sqldata)) {

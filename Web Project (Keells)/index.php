@@ -57,11 +57,14 @@ if($con){
       // consecutively rather than all at once. This example shows how to use
       // window.setTimeout() to space your markers' animation.
       const neighborhoods = [
-        { lat: 6.9934, lng: 81.0550 },  // badulla
-        { lat: 6.9497, lng: 80.7891 },  // nuwara eliya
-        { lat: 5.9549, lng: 80.5550 },  //kandy
-        { lat: 7.2906, lng: 80.6337 },  //matara
-        { lat: 8.3114, lng: 80.4037 }   //anuradhapura
+        { lat: 6.9934, lng: 81.0550 }, 
+        { lat: 6.9497, lng: 80.7891 },  
+        { lat: 5.9549, lng: 80.5550 },  
+        { lat: 7.2906, lng: 80.6337 },  
+        { lat: 8.3114, lng: 80.4037 }, 
+        { lat: 7.8742, lng: 80.6511 }, 
+        { lat: 7.9403, lng: 81.0188 },
+        { lat: 8.1540, lng: 80.3046 } 
 
       ];
 
@@ -71,7 +74,8 @@ if($con){
             "</div>" +
             '<h1 id="firstHeading" class="firstHeading">Badulla</h1>' +
             '<div id="bodyContent">' +
-            "<p><b>Badulla</b>   </p>" +      // ADD HEARE badulla
+            "<p><b>Ayomal</b>   </p>" + 
+            "<p><b>Tomato(100Kg)</b>   </p>" +      
             "</div>" +
             "</div>",
          //   
@@ -80,7 +84,8 @@ if($con){
             "</div>" +
             '<h1 id="firstHeading" class="firstHeading">Nuwara Eliya</h1>' +
             '<div id="bodyContent">' +
-            "<p><b>Nuwara Eliya</b>   </p>" +      // ADD HEARE nuwara eliya
+            "<p><b>Roshan</b>   </p>" + 
+            "<p><b>Eggs(500)</b>   </p>" +      
             "</div>" +
             "</div>"+
         "</div>",
@@ -90,7 +95,8 @@ if($con){
             "</div>" +
             '<h1 id="firstHeading" class="firstHeading">Matara</h1>' +
             '<div id="bodyContent">' +
-            "<p><b>Matara</b>   </p>" +        // ADD HEARE kandy
+            "<p><b>Ishini</b>   </p>" + 
+            "<p><b>Potato(150Kg)</b>   </p>" +         
             "</div>" +
             "</div>"+
         "</div>",
@@ -100,7 +106,8 @@ if($con){
             "</div>" +
             '<h1 id="firstHeading" class="firstHeading">Kandy</h1>' +
             '<div id="bodyContent">' +
-            "<p><b>Kandy</b>   </p>" +         //ADD HEARE matara
+            "<p><b>Hiruni</b>   </p>" + 
+            "<p><b>Pumpkin(200Kg)</b>   </p>" +       
             "</div>" +
             "</div>"+
         "</div>",
@@ -110,10 +117,45 @@ if($con){
             "</div>" +
             '<h1 id="firstHeading" class="firstHeading">Anuradhapura</h1>' +
             '<div id="bodyContent">' +
-            "<p><b>Anuradhapura</b>   </p>" +     // ADD HEARE anuradhapura
+            "<p><b>Ewantha</b>   </p>" + 
+            "<p><b>Potato(100Kg)</b>   </p>" +      
+            "</div>" +
+            "</div>"+
+        "</div>",
+        //
+        '<div id="content">' +
+            '<div id="siteNotice">' +
+            "</div>" +
+            '<h1 id="firstHeading" class="firstHeading">Dabulla</h1>' +
+            '<div id="bodyContent">' +
+            "<p><b>Kamal</b>   </p>" + 
+            "<p><b>Onion(150Kg)</b>   </p>" +      
+            "</div>" +
+            "</div>"+
+        "</div>",
+
+        '<div id="content">' +
+            '<div id="siteNotice">' +
+            "</div>" +
+            '<h1 id="firstHeading" class="firstHeading">Polonnaruwa</h1>' +
+            '<div id="bodyContent">' +
+            "<p><b>Sunil</b>   </p>" + 
+            "<p><b>Mango(500)</b>   </p>" +      
+            "</div>" +
+            "</div>"+
+        "</div>",
+
+        '<div id="content">' +
+            '<div id="siteNotice">' +
+            "</div>" +
+            '<h1 id="firstHeading" class="firstHeading">Tamuttegama</h1>' +
+            '<div id="bodyContent">' +
+            "<p><b>Namal</b>   </p>" + 
+            "<p><b>Banana(200Kg)</b>   </p>" +      
             "</div>" +
             "</div>"+
         "</div>"
+
 
       ];
       let markers = [];

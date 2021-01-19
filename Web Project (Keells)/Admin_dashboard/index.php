@@ -1,6 +1,6 @@
 <?php 
 
-$username1 =$_GET['username'];
+$userName=$_GET['username'];
 
 
 $servername = "localhost";
@@ -15,7 +15,7 @@ if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
 }
 
-$sql = "SELECT * FROM  keells_admin WHERE  userName= '$username1' ";
+$sql = "SELECT * FROM  keells_admin WHERE  userName= '$userName' ";
 $result = mysqli_query($conn, $sql) or die( mysqli_error($conn));
 
 
@@ -66,7 +66,7 @@ $total7 = $row7[0];
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>SB Admin - Dashboard</title>
+    <title>Admin - Dashboard</title>
 
     <!-- Bootstrap core CSS-->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -78,7 +78,7 @@ $total7 = $row7[0];
     <link href="vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
 
     <!-- Custom styles for this template-->
-    <link href="css/admin.css" rel="stylesheet">
+    <link href="css/adindex.css" rel="stylesheet">
 
   </head>
   <nav class="navbar navbar-style">
@@ -105,19 +105,20 @@ $total7 = $row7[0];
       <!-- Sidebar -->
       <ul class="sidebar navbar-nav">
         <li class="nav-item active">
-          <a class="nav-link" href="index.html">
+          <a class="nav-link" href="index.php">
             <i class="fas fa-fw fa-tachometer-alt"></i>
             <span>Dashboard</span>
           </a>
         </li>
        
         <li class="nav-item">
-          <a class="nav-link" href="charts.html">
+          <a class="nav-link" href="<?php echo "chart.php?username=$userName" ?>">
+         
             <i class="fas fa-fw fa-chart-area"></i>
             <span>Charts</span></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="tables.html">
+          <a class="nav-link" href="<?php echo "table.php?username=$userName" ?>">
             <i class="fas fa-fw fa-table"></i>
             <span>Tables</span></a>
         </li>
@@ -127,29 +128,64 @@ $total7 = $row7[0];
             <span>Orders</span></a>
         </li>
         <li class="nav-item">
+
+      
         <?php
         if ($type == "keells")
             {
           echo	"<div class='list-group-item list-group-item-action bg-light' id='sky2' >";
           echo	"<h5 id='s'>Message</h5>";
           echo	"<div class='bubble bubble-bottom-left'  contenteditable>";
-          echo	"<select class='input' name='type'>";
+          echo	"<select class='input' name='type' id ='op' >";
         while($res2 = mysqli_fetch_array($result2)) {  
-          echo 	"<option value=".$res2['userName'].">".$res2['userName']. "</option>";
+          echo 	"<option  value=".$res2['userName'].">".$res2['userName']. "</option>";
             }
           echo"</select>";
           echo  "</div>";
-          echo "<input type='text' name='' placeholder='type..' id='sky5' class='list-group-item list-group-item-action bg-light'></a>";
-          echo  " <a href='#' id 'roshan' class='myButton' onclick='myFunction3()'  >   Send </a>";
-          echo "  </div>";
-          echo " " ;
+          echo "";
+     
+  
             }
         else{
           echo "";
             }
         ?>
+<input type="text"  placeholder="type.." id="sky5" class="list-group-item list-group-item-action bg-light">
+        <a   id="d" class="myButton" onclick ="myFunction()" >   Send </a>
+          </div>
         </li>
-     
+        <script>
+
+
+
+        function myFunction() {
+
+
+
+
+
+var a = document.getElementById('d');        
+
+var b = document.getElementById("sky5").value;
+
+
+
+  var x = document.getElementById("op").value;
+
+
+
+a.href = "masge.php?massge="+b+"&name="+x;
+
+
+
+        }
+        </script>
+
+
+   
+      
+
+       
       </ul>
 
       <div id="content-wrapper">
@@ -235,17 +271,20 @@ $total7 = $row7[0];
             </div>
           </div>
         </div> 
-
+<br>
+<br>
+<br>
 
 
 <section>
-
-<table style="width:100%;border: 1px solid black;border: 1px solid black;border-collapse: collapse;border-spacing: 5px;" class="sky">
+<h2 style="width: 300px; height: 200px; margin-left: 520px;margin-top: -50px;color:darkgreen;font-size:25px;">Orders</h2>
+<table style="width:1025px;border: 1px solid black;margin-top:-120px;margin-left: 50px;border: 1px solid black;border-collapse: collapse;border-spacing: 5px;" class="sky">
   <tr>
+  <th style="width:50px;border: 1px solid black;border: 1px solid black;border-collapse: collapse;padding: 10px;text-align: center;">ID</th>
     <th style="width:50px;border: 1px solid black;border: 1px solid black;border-collapse: collapse;padding: 10px;text-align: center;">Name</th>
     <th style="width:50px;border: 1px solid black;border: 1px solid black;border-collapse: collapse;padding: 10px;text-align: center;">Phone</th>
-    <th style="width:50px;border: 1px solid black;border: 1px solid black;border-collapse: collapse;padding: 10px;text-align: center;">Quantity</th>
     <th style="width:50px;border: 1px solid black;border: 1px solid black;border-collapse: collapse;padding: 10px;text-align: center;">Category</th>
+    <th style="width:50px;border: 1px solid black;border: 1px solid black;border-collapse: collapse;padding: 10px;text-align: center;">Quantity</th>
   </tr>
   <?php
 									  
@@ -269,11 +308,12 @@ $total7 = $row7[0];
  
 	 
 									while($res = mysqli_fetch_array($result)) {         
-									 echo "<tr>";
+                   echo "<tr class ='mood'>";
+                   echo "<td  >".$res['id']."</td>";
 									 echo "<td  >".$res['name']."</td>";
 									 echo "<td  >".$res['phone']."</td>";  
 									 echo "<td  >".$res['category']."</td>"; 
-									 echo "<td  >".$res['id']."</td>"; 
+									 echo "<td  >".$res['quantity']."</td>"; 
 									   }                                
      ?>
 
@@ -318,3 +358,20 @@ $total7 = $row7[0];
   </body>
 
 </html>
+<style>
+
+
+.mood{
+
+  width:50px;
+  border: 1px solid black;
+  border: 1px solid black;
+  border-collapse: collapse;
+  padding: 10px;
+  text-align: center;
+
+
+}
+
+
+</style>
